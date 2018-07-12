@@ -27,153 +27,153 @@ s! {
     }
 
     pub struct statfs {
-        pub f_flags: ::uint32_t;
-        pub f_bsize: ::uint32_t;
-        pub f_iosize: ::uint32_t;
-        pub f_blocks: ::uint64_t;
-        pub f_bfree: ::uint64_t;
-        pub f_bavail: ::int64_t;
-        pub f_files: ::uint64_t;
-        pub f_ffree: ::uint64_t;
-        pub f_favail: ::int64_t;
-        pub f_syncwrites: ::uint64_t;
-        pub f_syncreads: ::uint64_t;
-        pub f_asyncwrites: ::uint64_t;
-        pub f_asyncreads: ::uint64_t;
-        pub f_fsid: ::fsid_t;
-        pub f_namemax: ::uint32_t;
-        pub f_owner: ::uid_t;
-        pub f_ctime: ::uint64_t;
-        pub f_fstypename: [::c_char; 16];
-        pub f_mntonname: [::c_char; 90];
-        pub f_mntfromname: [::c_char; 90];
-        pub f_mntfromspec: [::c_char; 90];
-        pub mount_info: mount_info;
+        pub f_flags: ::uint32_t,
+        pub f_bsize: ::uint32_t,
+        pub f_iosize: ::uint32_t,
+        pub f_blocks: ::uint64_t,
+        pub f_bfree: ::uint64_t,
+        pub f_bavail: ::int64_t,
+        pub f_files: ::uint64_t,
+        pub f_ffree: ::uint64_t,
+        pub f_favail: ::int64_t,
+        pub f_syncwrites: ::uint64_t,
+        pub f_syncreads: ::uint64_t,
+        pub f_asyncwrites: ::uint64_t,
+        pub f_asyncreads: ::uint64_t,
+        pub f_fsid: ::fsid_t,
+        pub f_namemax: ::uint32_t,
+        pub f_owner: ::uid_t,
+        pub f_ctime: ::uint64_t,
+        pub f_fstypename: [::c_char; 16],
+        pub f_mntonname: [::c_char; 90],
+        pub f_mntfromname: [::c_char; 90],
+        pub f_mntfromspec: [::c_char; 90],
+        pub mount_info: mount_info,
     }
 
     pub union mount_info {
-        pub ufs_args: ufs_args;
-        pub mfs_args: mfs_args;
-        pub nfs_args: nfs_args;
-        pub iso_args: iso_args;
-        pub msdosfs_args: msdosfs_args;
-        pub ntfs_args: ntfs_args;
-        pub tmpfs_args: tmpfs_args;
-        align: [::c_char; 160];
+        pub ufs_args: ufs_args,
+        pub mfs_args: mfs_args,
+        pub nfs_args: nfs_args,
+        pub iso_args: iso_args,
+        pub msdosfs_args: msdosfs_args,
+        pub ntfs_args: ntfs_args,
+        pub tmpfs_args: tmpfs_args,
+        align: [::c_char; 160],
     }
 
     pub struct ufs_args {
-        pub fspec: *mut ::c_char;
-        pub export_info: export_args;
+        pub fspec: *mut ::c_char,
+        pub export_info: export_args,
     }
 
     pub struct mfs_args {
-        pub fspec: *mut ::c_char;
-        pub export_info: export_args;
+        pub fspec: *mut ::c_char,
+        pub export_info: export_args,
         // https://github.com/openbsd/src/blob/master/sys/sys/types.h#L134
-        pub base: *mut ::c_char;
-        pub size: ::c_ulong;
+        pub base: *mut ::c_char,
+        pub size: ::c_ulong,
     }
 
     pub struct iso_args {
-        pub fspec: *mut ::c_char;
-        pub export_info: export_args;
-        pub flags: ::c_int;
-        pub sess: ::c_int;
+        pub fspec: *mut ::c_char,
+        pub export_info: export_args,
+        pub flags: ::c_int,
+        pub sess: ::c_int,
     }
 
     pub struct nfs_args {
-        pub version: ::c_int;
-        pub addr: *mut sockaddr_in;
-        pub addrlen: ::c_int;
-        pub sotype: ::c_int;
-        pub proto: ::c_int;
-        pub fh: *mut ::c_uchar;
-        pub fhsize: ::c_int;
-        pub flags: ::c_int;
-        pub wsize: ::c_int;
-        pub rsize: ::c_int;
-        pub readdirsize: ::c_int;
-        pub timeo: ::c_int;
-        pub retrans: ::c_int;
-        pub maxgrouplist: ::c_int;
-        pub readahead: ::c_int;
-        pub leaseterm: ::c_int;
-        pub deadthresh: ::c_int;
-        pub hostname: *mut ::c_char;
-        pub acregmin: ::c_int;
-        pub acregmax: ::c_int;
-        pub acdirmin: ::c_int;
-        pub acdirmax: ::c_int;
+        pub version: ::c_int,
+        pub addr: *mut sockaddr_in,
+        pub addrlen: ::c_int,
+        pub sotype: ::c_int,
+        pub proto: ::c_int,
+        pub fh: *mut ::c_uchar,
+        pub fhsize: ::c_int,
+        pub flags: ::c_int,
+        pub wsize: ::c_int,
+        pub rsize: ::c_int,
+        pub readdirsize: ::c_int,
+        pub timeo: ::c_int,
+        pub retrans: ::c_int,
+        pub maxgrouplist: ::c_int,
+        pub readahead: ::c_int,
+        pub leaseterm: ::c_int,
+        pub deadthresh: ::c_int,
+        pub hostname: *mut ::c_char,
+        pub acregmin: ::c_int,
+        pub acregmax: ::c_int,
+        pub acdirmin: ::c_int,
+        pub acdirmax: ::c_int,
     }
 
     pub struct msdosfs_args {
-        pub fspec: *mut ::c_char;
-        pub export_info: export_args;
-        pub uid: ::uid_t;
-        pub gid: ::gid_t;
-        pub mask: ::mode_t;
-        pub flags: ::c_int;
+        pub fspec: *mut ::c_char,
+        pub export_info: export_args,
+        pub uid: ::uid_t,
+        pub gid: ::gid_t,
+        pub mask: ::mode_t,
+        pub flags: ::c_int,
     }
 
     pub struct ntfs_args {
-        pub fspec: *mut ::c_char;
-        pub export_info: export_args;
-        pub uid: ::uid_t;
-        pub gid: ::gid_t;
-        pub mask: ::mode_t;
-        pub flag: ::c_ulong;
+        pub fspec: *mut ::c_char,
+        pub export_info: export_args,
+        pub uid: ::uid_t,
+        pub gid: ::gid_t,
+        pub mask: ::mode_t,
+        pub flag: ::c_ulong,
     }
 
     pub struct udf_args {
-        pub fspec: *mut ::c_char;
-        pub lastblock: ::uint32_t;
+        pub fspec: *mut ::c_char,
+        pub lastblock: ::uint32_t,
     }
 
     pub struct tmpfs_args {
-        pub ta_version: ::c_int;
-        pub ta_nodes_max: ::ino_t;
-        pub ta_size_max: ::off_t;
-        pub ta_root_uid: ::uid_t;
-        pub ta_root_gid: ::gid_t;
-        pub ta_root_mode: ::mode_t;
+        pub ta_version: ::c_int,
+        pub ta_nodes_max: ::ino_t,
+        pub ta_size_max: ::off_t,
+        pub ta_root_uid: ::uid_t,
+        pub ta_root_gid: ::gid_t,
+        pub ta_root_mode: ::mode_t,
     }
 
     pub struct fusefs_args {
-        pub fspec: *mut ::c_char;
-        pub fd: ::c_int;
-        pub max_read: ::c_int;
-        pub allow_other: ::c_int;
+        pub fspec: *mut ::c_char,
+        pub fd: ::c_int,
+        pub max_read: ::c_int,
+        pub allow_other: ::c_int,
     }
 
     pub struct xucred {
-        pub cr_uid: ::uid_t;
-        pub cr_gid: ::gid_t;
-        pub cr_ngroups: ::c_short;
+        pub cr_uid: ::uid_t,
+        pub cr_gid: ::gid_t,
+        pub cr_ngroups: ::c_short,
         //https://github.com/openbsd/src/blob/master/sys/sys/syslimits.h#L44
-        pub cr_groups[::gid_t; 16];
+        pub cr_groups[::gid_t; 16],
     }
 
     pub struct export_args {
-        pub ex_flags: ::c_int;
-        pub ex_root: ::uid_t;
-        pub ex_anon: xucred;
-        pub ex_addr: *mut sockaddr_in;
-        pub ex_addrlen: ::c_int;
-        pub ex_mask: *mut sockaddr_in;
-        pub ex_masklen: ::c_int;
+        pub ex_flags: ::c_int,
+        pub ex_root: ::uid_t,
+        pub ex_anon: xucred,
+        pub ex_addr: *mut sockaddr_in,
+        pub ex_addrlen: ::c_int,
+        pub ex_mask: *mut sockaddr_in,
+        pub ex_masklen: ::c_int,
     }
 
     pub struct in_addr {
-        pub s_addr: ::in_addr_t;
+        pub s_addr: ::in_addr_t,
     }
 
     pub struct sockaddr_in {
-        pub sin_len: ::uint8_t;
-        pub sin_family: ::sa_family_t;
-        pub sin_port: ::in_port_t;
-        pub sin_addr: in_addr;
-        pub sin_zero: [8; ::int8_t];
+        pub sin_len: ::uint8_t,
+        pub sin_family: ::sa_family_t,
+        pub sin_port: ::in_port_t,
+        pub sin_addr: in_addr,
+        pub sin_zero: [8; ::int8_t],
     }
 }
 
