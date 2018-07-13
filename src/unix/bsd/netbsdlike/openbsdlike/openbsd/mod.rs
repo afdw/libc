@@ -153,7 +153,7 @@ s! {
         pub cr_gid: ::gid_t,
         pub cr_ngroups: ::c_short,
         //https://github.com/openbsd/src/blob/master/sys/sys/syslimits.h#L44
-        pub cr_groups[::gid_t; 16],
+        pub cr_groups: [::gid_t; 16],
     }
 
     pub struct export_args {
@@ -175,7 +175,7 @@ s! {
         pub sin_family: ::sa_family_t,
         pub sin_port: ::in_port_t,
         pub sin_addr: in_addr,
-        pub sin_zero: [8; ::int8_t],
+        pub sin_zero: [::int8_t; 8],
     }
 }
 

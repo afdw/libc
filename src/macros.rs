@@ -35,28 +35,17 @@ macro_rules! __cfg_if_apply {
 }
 
 macro_rules! s {
-    ($($(#[$attr:meta])* pub struct $i:ident { $($field:tt)* })*) => ($(
+    ($($(#[$attr:meta])* pub $t:ident $i:ident { $($field:tt)* })*) => ($(
         __item! {
             #[repr(C)]
             $(#[$attr])*
-            pub struct $i { $($field)* }
+            pub $t $i { $($field)* }
         }
         impl ::dox::Copy for $i {}
         impl ::dox::Clone for $i {
             fn clone(&self) -> $i { *self }
         }
-    )*);
-    ($($(#[$attr:meta])* pub union $i:ident { $($field:tt)* })*) => ($(
-        __item! {
-            #[repr(C)]
-            $(#[$attr])*
-            pub union $i { $($field)* }
-        }
-        impl ::dox::Copy for $i {}
-        impl ::dox::Clone for $i {
-            fn clone(&self) -> $i { *self }
-        }
-    )*);
+    )*)
 }
 
 macro_rules! f {
