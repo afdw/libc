@@ -45,6 +45,17 @@ macro_rules! s {
         impl ::dox::Clone for $i {
             fn clone(&self) -> $i { *self }
         }
+    )*);
+    ($($(#[$attr:meta])* pub union $i:ident { $($field:tt)* })*) => ($(
+        __item! {
+            #[repr(C)]
+            $(#[$attr])*
+            pub union $i { $($field)* }
+        }
+        impl ::dox::Copy for $i {}
+        impl ::dox::Clone for $i {
+            fn clone(&self) -> $i { *self }
+        }
     )*)
 }
 

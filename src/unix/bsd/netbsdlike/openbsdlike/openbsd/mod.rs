@@ -1,3 +1,5 @@
+pub type c_uchar = u8;
+
 s! {
     pub struct lconv {
         pub decimal_point: *mut ::c_char,
