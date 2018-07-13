@@ -125,27 +125,6 @@ s! {
         pub f_mntfromname: [::c_char; 1024],
     }
 
-    pub struct statfs {
-        pub f_type: ::c_short,
-        pub f_oflags: ::c_ushort,
-        pub f_bsize: ::c_long,
-        pub f_iosize: ::c_long,
-        pub f_blocks: ::c_long,
-        pub f_bfree: ::c_long,
-        pub f_bavail: ::c_long,
-        pub f_files: ::c_long,
-        pub f_ffree: ::c_long,
-        pub f_fsid: ::fsid_t,
-        pub f_owner: ::uid_t,
-        pub f_flags: ::c_long,
-        pub f_syncwrites: ::c_long,
-        pub f_asyncwrites: ::c_long,
-        f_spare: [::c_long; 1],
-        pub f_fstypename: [::c_char; 16],
-        pub f_mntonname: [::c_char; 90],
-        pub f_mntfromname: [::c_char; 90],
-    }
-
     pub struct addrinfo {
         pub ai_flags: ::c_int,
         pub ai_family: ::c_int,
