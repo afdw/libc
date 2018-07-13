@@ -56,7 +56,7 @@ macro_rules! s {
         impl ::dox::Clone for $i {
             fn clone(&self) -> $i { *self }
         }
-    )*)
+    )*);
 }
 
 macro_rules! f {
