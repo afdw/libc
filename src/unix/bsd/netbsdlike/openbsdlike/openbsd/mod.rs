@@ -1,5 +1,3 @@
-pub type c_uchar = u8;
-
 s! {
     pub struct lconv {
         pub decimal_point: *mut ::c_char,
@@ -86,7 +84,7 @@ s! {
 
     pub struct nfs_args {
         pub version: ::c_int,
-        pub addr: *mut sockaddr_in,
+        pub addr: *mut sockaddr,
         pub addrlen: ::c_int,
         pub sotype: ::c_int,
         pub proto: ::c_int,
@@ -160,22 +158,14 @@ s! {
         pub ex_flags: ::c_int,
         pub ex_root: ::uid_t,
         pub ex_anon: xucred,
-        pub ex_addr: *mut sockaddr_in,
+        pub ex_addr: *mut sockaddr,
         pub ex_addrlen: ::c_int,
-        pub ex_mask: *mut sockaddr_in,
+        pub ex_mask: *mut sockaddr,
         pub ex_masklen: ::c_int,
     }
 
     pub struct in_addr {
         pub s_addr: ::in_addr_t,
-    }
-
-    pub struct sockaddr_in {
-        pub sin_len: ::uint8_t,
-        pub sin_family: ::sa_family_t,
-        pub sin_port: ::in_port_t,
-        pub sin_addr: in_addr,
-        pub sin_zero: [::int8_t; 8],
     }
 }
 
