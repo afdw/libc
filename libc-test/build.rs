@@ -343,7 +343,7 @@ fn main() {
         }
     }
 
-    cfg.type_name(move |ty, is_struct| {
+    cfg.type_name(move |ty, is_struct, is_union| {
         match ty {
             // Just pass all these through, no need for a "struct" prefix
             "FILE" |
@@ -376,6 +376,8 @@ fn main() {
                     format!("struct {}", t)
                 }
             }
+
+            t if is_union => format!("union {}", t),
 
             t => t.to_string(),
         }
@@ -821,12 +823,6 @@ fn main() {
         });
         cfg.skip_struct(|s| {
             s != "termios2"
-        });
-        cfg.type_name(move |ty, is_struct| {
-            match ty {
-                t if is_struct => format!("struct {}", t),
-                t => t.to_string(),
-            }
         });
     } else {
         cfg.skip_const(|_| true);
